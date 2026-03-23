@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PERSONAL } from '../utils/data';
 import { useInView } from '../hooks/useInView';
 import styles from './Contact.module.css';
+import emailjs from "@emailjs/browser";
 
 const INITIAL = { name: '', email: '', subject: '', message: '' };
 
@@ -19,6 +20,7 @@ export default function Contact() {
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
   const [ref, inView] = useInView();
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,25 +28,42 @@ export default function Contact() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const errs = validate(form);
-    if (Object.keys(errs).length) {
-      setErrors(errs);
-      return;
-    }
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    // Build mailto link — no backend needed
-    const subject = encodeURIComponent(
-      form.subject || `Portfolio inquiry from ${form.name}`
+  const errs = validate(form);
+  if (Object.keys(errs).length) {
+    setErrors(errs);
+    return;
+  }
+
+  setLoading(true);
+
+  emailjs
+    .send(
+      "service_jae86qd",        // your service ID
+      "template_knaifa9",       // your template ID
+      {
+        name: form.name,
+        email: form.email,
+        subject: form.subject || `Portfolio inquiry from ${form.name}`,
+        message: form.message,
+      },
+      "-FKeBkbg4WzmS2TX6"       // your public key
+    )
+    .then(
+      () => {
+        setSent(true);
+        setLoading(false);
+        setForm(INITIAL);
+        setErrors({});
+      },
+      (error) => {
+        console.error("FAILED...", error.text);
+        setLoading(false);
+      }
     );
-    const body = encodeURIComponent(
-      `Hi Jeeban,\n\nName: ${form.name}\nEmail: ${form.email}\n\n${form.message}\n\nSent from your portfolio.`
-    );
-    window.location.href = `mailto:${PERSONAL.email}?subject=${subject}&body=${body}`;
-    setSent(true);
-    setForm(INITIAL);
-  };
+};
 
   return (
     <section id="contact" className={`section ${styles.section}`}>
@@ -113,8 +132,8 @@ export default function Contact() {
             {sent ? (
               <div className={styles.successCard}>
                 <div className={styles.successIcon}>✓</div>
-                <h3>Email client opened!</h3>
-                <p>Your message draft is ready. Just hit send in your email client to reach me.</p>
+                <h3>Message sent successfully!</h3>
+                <p>Thanks for reaching out. I’ll get back to you as soon as possible.</p>
                 <button className="btn-outline" onClick={() => setSent(false)}>
                   Send another
                 </button>
@@ -177,13 +196,13 @@ export default function Contact() {
                   {errors.message && <span className={styles.error}>{errors.message}</span>}
                 </div>
 
-                <button type="submit" className={`btn-primary ${styles.submitBtn}`}>
-                  Send Message
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="22" y1="2" x2="11" y2="13" />
-                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                  </svg>
-                </button>
+<button 
+  type="submit" 
+  disabled={loading}
+  className={`btn-primary ${styles.submitBtn}`}
+>
+  {loading ? "Sending..." : "Send Message"}
+</button>
 
                 <p className={styles.note}>
                   * Opens your email client with the message pre-filled. No data is stored.
