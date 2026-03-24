@@ -77,53 +77,101 @@ export const EXPERIENCE = [
 
 export const PROJECTS = [
   {
-    name: 'Samunnati Platform',
-    scale: '700,000+ Users',
-    scaleColor: 'green',
+    name: "Samunnati Platform",
+    scale: "700,000+ Users",
+    scaleColor: "green",
     description:
-      'Large-scale agri-fintech platform connecting farmers and FPOs (Farmer Producer Organisations) with full stack modules built end-to-end.',
+      "Large-scale agri-fintech platform connecting farmers and FPOs (Farmer Producer Organisations) with full stack modules built end-to-end.",
     highlights: [
-      'React frontend with Redux & Tailwind CSS backed by Node.js APIs and PostgreSQL.',
-      'Farmer–FPO Association & Disassociation workflows managing high-volume relational data.',
-      'Optimised heavy dashboard analytics queries on PostgreSQL — significant load time improvements.',
-      'Group Communication module enabling information sharing between farmers and FPO contributors.',
-      'Digital Assistance module with JWT-secured operations for authorized contributor actions.',
-      'Backend automation using AWS Lambda and EventBridge for platform-scale operational efficiency.',
+      "React frontend with Redux & Tailwind CSS backed by Node.js APIs and PostgreSQL.",
+      "Farmer–FPO Association & Disassociation workflows managing high-volume relational data.",
+      "Optimised heavy dashboard analytics queries on PostgreSQL — significant load time improvements.",
+      "Group Communication module enabling information sharing between farmers and FPO contributors.",
+      "Digital Assistance module with JWT-secured operations for authorized contributor actions.",
+      "Backend automation using AWS Lambda and EventBridge for platform-scale operational efficiency.",
     ],
-    tags: ['React', 'Node.js', 'PostgreSQL', 'AWS Lambda', 'EventBridge', 'Redux'],
-    github: 'https://github.com/yourusername/samunnati-platform',   // 🔁 Replace with your GitHub URL
-    demo: 'https://samunnati.example.com',                          // 🔁 Replace with your live demo URL
+    tags: [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "AWS Lambda",
+      "EventBridge",
+      "Redux",
+    ],
+    // github: "https://github.com/yourusername/samunnati-platform", // 🔁 Replace with your GitHub URL
+    // demo: "https://samunnati.example.com", // 🔁 Replace with your live demo URL
   },
   {
-    name: 'Savannah Platform',
-    scale: '100,000+ Registered Farmers',
-    scaleColor: 'sky',
+    name: "Savannah Platform",
+    scale: "100,000+ Registered Farmers",
+    scaleColor: "sky",
     description:
-      'Farmer support platform with real-time chat, CRM integration and structured query lifecycle management.',
+      "Farmer support platform with real-time chat, CRM integration and structured query lifecycle management.",
     highlights: [
-      'React-based chat UI with real-time updates integrated with Node.js backend routing farmer queries.',
-      'Backend workflow for structured query assignment, tracking, and resolution lifecycle.',
-      'Salesforce CRM API integration for bidirectional data synchronisation across systems.',
+      "React-based chat UI with real-time updates integrated with Node.js backend routing farmer queries.",
+      "Backend workflow for structured query assignment, tracking, and resolution lifecycle.",
+      "Salesforce CRM API integration for bidirectional data synchronisation across systems.",
       "'Request for Call Back' feature with React + Material UI form and backend scheduling logic.",
     ],
-    tags: ['React', 'Node.js', 'Salesforce CRM', 'Material UI', 'REST APIs'],
-    github: 'https://github.com/yourusername/savannah-platform',    // 🔁 Replace with your GitHub URL
-    demo: 'https://savannah.example.com',                           // 🔁 Replace with your live demo URL
+    tags: ["React", "Node.js", "Salesforce CRM", "Material UI", "REST APIs"],
+    // github: "https://github.com/yourusername/savannah-platform", // 🔁 Replace with your GitHub URL
+    // demo: "https://savannah.example.com", // 🔁 Replace with your live demo URL
   },
   {
-    name: 'RiceTec US Platform',
-    scale: '~100,000 Users',
-    scaleColor: 'amber',
+    name: "RiceTec US Platform",
+    scale: "~100,000 Users",
+    scaleColor: "amber",
     description:
-      'US-based agricultural platform with enhanced backend APIs powering real-time dashboard and reporting systems.',
+      "US-based agricultural platform with enhanced backend APIs powering real-time dashboard and reporting systems.",
     highlights: [
-      'Enhanced backend APIs for real-time dashboard and reporting with improved reliability.',
-      'Structured error handling and performance tuning for production stability.',
-      'Proactive backend optimisation contributing to platform uptime.',
+      "Enhanced backend APIs for real-time dashboard and reporting with improved reliability.",
+      "Structured error handling and performance tuning for production stability.",
+      "Proactive backend optimisation contributing to platform uptime.",
     ],
-    tags: ['Node.js', 'REST APIs', 'Performance Tuning', 'Backend Optimization'],
-    github: 'https://github.com/yourusername/ricetec-platform',     // 🔁 Replace with your GitHub URL
-    demo: 'https://ricetec.example.com',                            // 🔁 Replace with your live demo URL
+    tags: [
+      "Node.js",
+      "REST APIs",
+      "Performance Tuning",
+      "Backend Optimization",
+    ],
+  //   github: "https://github.com/yourusername/ricetec-platform", // 🔁 Replace with your GitHub URL
+  //   demo: "https://ricetec.example.com", // 🔁 Replace with your live demo URL
+  },
+  {
+    name: "Ecommerce Platform",
+    scale: "Dummy Users",
+    scaleColor: "green",
+    description:
+      "A full-stack eCommerce application built to simulate real-world online shopping workflows, featuring both user and admin panels for managing products, orders, and customers.",
+    highlights: [
+      "Developed separate Admin and User interfaces for product browsing, cart management, and order processing.",
+      "Admin dashboard to manage products, categories, users, and track orders efficiently.",
+      "Implemented authentication and authorization using JWT for secure user and admin access.",
+      "Built RESTful APIs using Node.js with PostgreSQL for handling scalable data operations.",
+      "State management using Redux for seamless user experience across the application.",
+      "Responsive UI built with React and Tailwind CSS for modern and clean design.",
+    ],
+    tags: ["React", "Node.js", "PostgreSQL"],
+    // github: 'https://github.com/yourusername/samunnati-platform',   // 🔁 Replace with your GitHub URL
+    demo: "https://ecommerce-platform-swart.vercel.app/", // 🔁 Replace with your live demo URL
+  },
+  {
+    name: "Hotel Management",
+    scale: "Dummy Users",
+    scaleColor: "green",
+    description:
+      "A hotel management system designed to handle room bookings, customer management, and administrative operations with separate user and admin functionalities.",
+    highlights: [
+      "User module for browsing rooms, checking availability, and booking rooms online.",
+      "Admin panel to manage room inventory, pricing, bookings, and customer details.",
+      "Implemented booking workflow with status tracking (booked, checked-in, checked-out).",
+      "Secure authentication system using JWT for both users and administrators.",
+      "Backend APIs developed using Node.js with PostgreSQL for efficient data handling.",
+      "Clean and responsive frontend built with React, Redux, and Tailwind CSS.",
+    ],
+    tags: ["React", "Node.js", "PostgreSQL", "AWS DynamoDB"],
+    // github: 'https://github.com/yourusername/samunnati-platform',   // 🔁 Replace with your GitHub URL
+    // demo: 'https://samunnati.example.com',                          // 🔁 Replace with your live demo URL
   },
 ];
 
